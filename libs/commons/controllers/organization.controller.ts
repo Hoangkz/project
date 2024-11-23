@@ -1,6 +1,3 @@
-import { AllowAuth } from '@libs/auth-lib/decorators/allow-auth.decorator';
-import { HasResources } from '@libs/auth-lib/decorators/has-resources.decorator';
-import { JwtAuthGuard } from '@libs/auth-lib/guards/jwt-auth.guard';
 import {
   Body,
   Controller,
@@ -13,6 +10,9 @@ import {
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { ApiBody, ApiQuery, ApiResponse } from '@nestjs/swagger';
+import { AllowAuth } from 'libs/auth/src/decorators/allow-auth.decorator';
+import { HasResources } from 'libs/auth/src/decorators/has-resources.decorator';
+import { JwtAuthGuard } from 'libs/auth/src/guards/jwt-auth.guard';
 import { ExtraPaginationResult } from 'libs/shared/base/pagination.result';
 import { UserGroupType } from 'libs/shared/constants/user-group.type';
 import { MsOrganizationQuery } from 'libs/shared/cqrs/query/ms-organization.query';
@@ -118,16 +118,6 @@ export class OrganizationController {
       return this.msOrganization.send(
         MsOrganizationQuery.GetOrganizationTree,
         '',
-      );
-    }
-
-    if (
-      user.userGroupType === UserGroupType.ORGANIZATION &&
-      user.userGroup.id
-    ) {
-      return this.msOrganization.send(
-        MsOrganizationQuery.GetOrganizationTree,
-        user.userGroup.id,
       );
     }
     return null;

@@ -1,12 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { BaseQueryResultDto } from 'libs/shared/base/base-query-result.dto';
-import { MetadataResult } from 'libs/shared/base/metadata.result';
 import { UserGroupType } from 'libs/shared/constants/user-group.type';
 import { UserGroup } from 'libs/shared/entities/general/base-user-group.entity';
 import { PermissionResult } from './permission.result';
 import { RoleResult } from './role.result';
 import { UserResourceResult } from './user-resource.result';
-import { EmbeddedEmployeePositionEntity } from 'libs/shared/entities/embedded/embedded-employee-position.entity';
 
 export class UserResult extends BaseQueryResultDto {
   @ApiProperty({
@@ -63,10 +61,6 @@ export class UserResult extends BaseQueryResultDto {
   })
   resources: UserResourceResult[];
 
-  @ApiProperty({
-    type: Object,
-  })
-  metadata: MetadataResult[];
 
   @ApiProperty({
     nullable: true,
@@ -75,10 +69,6 @@ export class UserResult extends BaseQueryResultDto {
   })
   userGroupType?: UserGroupType;
 
-  @ApiProperty({
-    nullable: true,
-  })
-  positionInGroup?: EmbeddedEmployeePositionEntity;
 
   @ApiProperty({
     nullable: true,

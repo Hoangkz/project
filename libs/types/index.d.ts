@@ -19,11 +19,6 @@ declare global {
 			NODE_ENV: 'dev'|'prod'
 			DB_NAME_GPON: string;
 			APP_SECRET: string;
-			ADMIN_PORT: number;
-			DASHBOARD_PORT: number;
-			CHANNEL_PORT: number;
-			GPON_PORT: number;
-			FUEL_PORT: number;
 			SECRET_KEY: string;
 			UPLOAD_FOLDER: string;
 

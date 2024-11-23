@@ -12,11 +12,9 @@ import {
   OneToMany
 } from 'typeorm';
 import { BaseIdentityEntity } from '../../base/base-identity.entity';
-import { EmbeddedEmployeePositionEntity } from '../embedded/embedded-employee-position.entity';
 import { UserGroup } from '../general/base-user-group.entity';
 import { Permission } from './permission.entity';
 import { Role } from './role.entity';
-import { UserMeta } from './user-meta.entity';
 import { UserResource } from './user-resource.entity';
 
 @Entity('User')
@@ -117,31 +115,6 @@ export class User extends BaseIdentityEntity {
   @ApiProperty()
   resources: UserResource[];
 
-  @Column(() => UserGroup)
-  userGroup?: UserGroup;
-
-  @Column('simple-enum', {
-    enum: UserGroupType,
-    enumName: 'UserGroupType',
-    nullable: true,
-  })
-  userGroupType?: UserGroupType;
-
-  // @Column('uniqueidentifier', {
-  //   name: 'PositionInGroup',
-  //   nullable: true,
-  // })
-  @Column(() => EmbeddedEmployeePositionEntity, {
-    prefix: 'PositionInGroup',
-  })
-  positionInGroup?: EmbeddedEmployeePositionEntity;
-
-  @OneToMany(() => UserMeta, (meta) => meta.owner, {
-    eager: true,
-    cascade: true,
-  })
-  @ApiProperty()
-  metadata: UserMeta[];
 
   @BeforeInsert()
   checkLocalPasswordInsert() {

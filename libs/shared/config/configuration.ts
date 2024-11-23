@@ -1,7 +1,6 @@
 import { Permission } from '../entities/ms-auth/permission.entity';
 import { Role } from '../entities/ms-auth/role.entity';
 import { UserAccessLog } from '../entities/ms-auth/user-access-log.entity';
-import { UserMeta } from '../entities/ms-auth/user-meta.entity';
 import { UserResource } from '../entities/ms-auth/user-resource.entity';
 import { User } from '../entities/ms-auth/user.entity';
 import { NotificationTemplate } from '../entities/ms-notification/notification-template.entity';
@@ -63,7 +62,7 @@ export default () => ({
 
   MS_AUTH: {
     ...getGeneralMicroserviceDbOptions(process.env.MS_AUTH_DB_NAME),
-    entities: [User, Role, UserMeta, UserResource, Permission, UserAccessLog],
+    entities: [User, Role, UserResource, Permission, UserAccessLog],
   },
   MS_ORGANIZATION: {
     ...getGeneralMicroserviceDbOptions(process.env.MS_ORGANIZATION_DB_NAME),

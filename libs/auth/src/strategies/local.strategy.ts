@@ -10,13 +10,13 @@ import passport from 'passport';
 import { Strategy } from 'passport-local';
 import { lastValueFrom } from 'rxjs';
 
-passport.serializeUser(function (user: any, done) {
-  done(null, user);
-});
+// passport.serializeUser(function (user: any, done) {
+//   done(null, user);
+// });
 
-passport.deserializeUser(function (user: any, done) {
-  done(null, user);
-});
+// passport.deserializeUser(function (user: any, done) {
+//   done(null, user);
+// });
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy, 'local') {

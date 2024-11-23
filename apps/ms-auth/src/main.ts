@@ -1,8 +1,5 @@
-import { NestFactory } from '@nestjs/core';
+import { bootstrapService } from 'libs/commons/bootstrap.common';
+import { MS_AUTH } from 'libs/shared/services';
 import { MsAuthModule } from './ms-auth.module';
 
-async function bootstrap() {
-  const app = await NestFactory.create(MsAuthModule);
-  await app.listen(process.env.port ?? 3000);
-}
-bootstrap();
+bootstrapService(MsAuthModule, MS_AUTH)

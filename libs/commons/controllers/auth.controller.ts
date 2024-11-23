@@ -1,4 +1,3 @@
-import { AllowAuth } from '@libs/auth-lib/decorators/allow-auth.decorator';
 import {
   BadRequestException,
   ClassSerializerInterceptor,
@@ -17,6 +16,7 @@ import { ConfigService } from '@nestjs/config';
 import { ClientProxy } from '@nestjs/microservices';
 import { ApiBody, ApiProperty, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { Response } from 'express';
+import { AllowAuth } from 'libs/auth/src/decorators/allow-auth.decorator';
 import { LocalAuthGuard } from 'libs/auth/src/guards/local-auth.guard';
 import { MsAuthCommand } from 'libs/shared/cqrs/commands/ms-auth.command';
 import { MsSocketCommand } from 'libs/shared/cqrs/commands/ms-socket.command';

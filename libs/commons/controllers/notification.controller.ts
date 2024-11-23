@@ -1,4 +1,3 @@
-import { JwtAuthGuard } from '@libs/auth-lib/guards/jwt-auth.guard';
 import {
   Body,
   Controller,
@@ -12,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { ApiBody, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'libs/auth/src/guards/jwt-auth.guard';
 import { ExtraPaginationResult } from 'libs/shared/base/pagination.result';
 import { MsNotificationCommand } from 'libs/shared/cqrs/commands/ms-notification.command';
 import { MsNotificationQuery } from 'libs/shared/cqrs/query/ms-notification.query';
